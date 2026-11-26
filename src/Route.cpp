@@ -9,27 +9,22 @@ Route::Route(int id, int from, int to, double distance)
       distance(distance) {
 }
 
-// методы ниже возвращают сохранённые характеристики маршрута
 int Route::getId() const {
     return id;
 }
 
-// возвращает значение поля объекта
 int Route::getFromId() const {
     return fromId;
 }
 
-// возвращает значение поля объекта
 int Route::getToId() const {
     return toId;
 }
 
-// возвращает текущий уровень
 int Route::getLevel() const {
     return level;
 }
 
-// возвращает расстояние
 double Route::getDistance() const {
     return distance;
 }
@@ -40,12 +35,10 @@ double Route::getUpgradeCost() const {
 }
 
 // улучшение снижает цену перевозки по маршруту
-// уровень учитывается в знаменателе, поэтому цена постепенно уменьшается
 double Route::getTransportCost() const {
     return distance * 0.5 / (1.0 + 0.5 * (level - 1));
 }
 
-// увеличиваем уровень маршрута на единицу
 void Route::upgrade() {
     ++level;
 }

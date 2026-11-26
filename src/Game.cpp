@@ -9,9 +9,9 @@
 #include <sstream>
 
 
-// здесь находится основной игровой процесс и обработка команд из консольного меню
+// основной игровой процесс и обработка команд из консольного меню
 namespace {
-// безопасный ввод целого числа из консоли
+// ввод целого числа из консоли
 int readInt(const std::string& prompt, int minValue, int maxValue) {
     while (true) {
         std::cout << prompt;
@@ -283,7 +283,6 @@ void Game::upgradeRoute() {
               << route->getTransportCost() << " у.е.\n";
 }
 
-// торговля использует общее количество techtrader во всей империи
 void Game::trade(bool buy) {
     int traderCount = empire.countTraders();
     TechTrader* trader = nullptr;

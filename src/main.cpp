@@ -3,8 +3,7 @@
 #include <iostream>
 #include <string>
 
-// запрашивает целое число и повторяет вопрос, пока пользователь
-// не введёт значение из разрешённого диапазона
+// запрашивает целое число и повторяет вопрос, пока пользователь не введёт значение из разрешённого диапазона
 int readNumber(const std::string& prompt, int minimum, int maximum) {
     while (true) {
         std::cout << prompt;
@@ -27,7 +26,7 @@ int readNumber(const std::string& prompt, int minimum, int maximum) {
                 return value;
             }
         } catch (const std::exception&) {
-            // stoi выбрасывает исключение, если строка не является числом
+            // выбрасывает исключение, если строка не является числом
         }
 
         std::cout << "Введите целое число от " << minimum
@@ -50,7 +49,7 @@ int main() {
     // значение 0 означает, что генератор выберет случайное начальное число
     int seed = readNumber("Seed генератора (0 — случайный): ", 0, 1000000000);
 
-    // создаём игру с настройками из gamesettings и запускаем игровой цикл
+    // создаём игру с настройками и запускаем игровой цикл
     Game game(
         planets,
         asteroids,

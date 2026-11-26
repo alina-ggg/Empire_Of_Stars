@@ -40,7 +40,6 @@ Route* Galaxy::findRoute(int id) const {
     return nullptr;
 }
 
-// ищет маршрут между двумя объектами
 Route* Galaxy::findRouteBetween(int first, int second) const {
     for (const auto& route : routes) {
         bool direct = route->getFromId() == first && route->getToId() == second;
@@ -50,14 +49,12 @@ Route* Galaxy::findRouteBetween(int first, int second) const {
     return nullptr;
 }
 
-// возвращает список космических объектов
 std::vector<CelestialBody*> Galaxy::getBodies() const {
     std::vector<CelestialBody*> result;
     for (const auto& body : bodies) result.push_back(body.get());
     return result;
 }
 
-// возвращает список маршрутов
 std::vector<Route*> Galaxy::getRoutes() const {
     std::vector<Route*> result;
     for (const auto& route : routes) result.push_back(route.get());

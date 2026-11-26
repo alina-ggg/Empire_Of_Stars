@@ -9,9 +9,7 @@ Planet::Planet(int id, const std::string& name, double x, double y)
     addResource("Gold", 100);
 }
 
-// возвращает тип объекта
 std::string Planet::getType() const { return "Планета"; }
-// проверяет возможность размещения корпорации
 bool Planet::canBuildCorporation() const { return true; }
 
 // планета добывает ограниченное количество каждого основного ресурса
@@ -33,12 +31,10 @@ std::map<std::string, int> Planet::extractResources(int multiplier) {
     return extracted;
 }
 
-// проверяет указанное состояние или условие
 bool Planet::hasCorporation(const std::string& type) const {
     return getCorporation(type) != nullptr;
 }
 
-// ищет корпорацию по её типу
 Corporation* Planet::getCorporation(const std::string& type) const {
     for (const auto& corporation : corporations) {
         if (corporation->getType() == type) return corporation.get();
@@ -53,7 +49,6 @@ bool Planet::addCorporation(std::unique_ptr<Corporation> corporation) {
     return true;
 }
 
-// возвращает список корпораций планеты
 const std::vector<std::unique_ptr<Corporation>>& Planet::getCorporations() const {
     return corporations;
 }

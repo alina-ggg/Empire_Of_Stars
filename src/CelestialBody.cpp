@@ -6,15 +6,10 @@
 CelestialBody::CelestialBody(int id, const std::string& name, double x, double y)
     : id(id), name(name), x(x), y(y), explored(false) {}
 
-// возвращает идентификатор объекта
 int CelestialBody::getId() const { return id; }
-// возвращает название объекта
 const std::string& CelestialBody::getName() const { return name; }
-// возвращает координату объекта по оси x
 double CelestialBody::getX() const { return x; }
-// возвращает координату объекта по оси y
 double CelestialBody::getY() const { return y; }
-// проверяет, исследован ли объект
 bool CelestialBody::isExplored() const { return explored; }
 // изменяет признак исследования объекта
 void CelestialBody::setExplored(bool value) { explored = value; }
@@ -46,9 +41,7 @@ int CelestialBody::getResource(const std::string& type) const {
 Asteroid::Asteroid(int id, const std::string& name, double x, double y)
     : CelestialBody(id, name, x, y) {}
 
-// возвращает тип объекта
 std::string Asteroid::getType() const { return "Астероид"; }
-// проверяет возможность размещения корпорации
 bool Asteroid::canBuildCorporation() const { return false; }
 
 // добывает доступные ресурсы объекта
